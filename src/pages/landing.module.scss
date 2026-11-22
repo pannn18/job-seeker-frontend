@@ -1,0 +1,64 @@
+@use "sass:color";
+@use "../styles/variables" as *;
+@use "../styles/functions" as *;
+@use "sass:map";
+
+
+.landing {
+  min-height: 100vh;
+  background-color: $body-bg;
+}
+
+.hero {
+  min-height: 70vh;
+  padding-top: toRem(175);
+  padding-bottom: toRem(110);
+  text-align: center;
+  background-image:
+    
+    radial-gradient(
+      ellipse 50% 50% at 50% 42%,
+      transparent 38%,
+      color.adjust($body-bg, $alpha: -0.45) 74%,
+      $body-bg 100%
+    ),
+    
+    radial-gradient(
+      circle at 50% 44%,
+      color.adjust($primary, $alpha: -0.84) 0%,
+      color.adjust($teal-01, $alpha: -0.94) 45%,
+      transparent 72%
+    ),
+
+    linear-gradient(to right, color.adjust($neutral-primary, $alpha: -0.955) 1px, transparent 1px),
+    linear-gradient(to bottom, color.adjust($neutral-primary, $alpha: -0.955) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, toRem(48) toRem(48), toRem(48) toRem(48);
+}
+
+.heroTitle {
+  font-size: $h1-font-size;
+  line-height: $heading-line-height;
+  color: $headings-color;
+  letter-spacing: -0.03em;
+
+}
+
+.mutedText {
+  color: $neutral-subtle;
+}
+
+.subtitle {
+  max-width: toRem(540);
+  margin: 0 auto toRem(28);
+  font-size: $font-size-base;
+  line-height: $line-height-font-base;
+  color: $neutral-secondary;
+}
+
+.heroContainer {
+  gap: map.get($spacers, 3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

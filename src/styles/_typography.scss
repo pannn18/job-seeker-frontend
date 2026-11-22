@@ -1,0 +1,45 @@
+@use "sass:list";
+@use "variables" as *;
+@use "mixins" as *;
+
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: $line-height-font-base;
+  font-weight: $font-weight-normal;
+  color: $color-text;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: $headings-font-weight;
+  line-height: $heading-line-height;
+  color: $color-text;
+}
+
+h1 { font-size: $h1-mobile-font-size; }
+h2 { font-size: $h2-mobile-font-size; }
+h3 { font-size: $h3-mobile-font-size; }
+h4 { font-size: $h4-mobile-font-size; }
+h5 { font-size: $h5-mobile-font-size; }
+h6 { font-size: $h6-mobile-font-size; }
+
+@media (min-width: $breakpoint-md) {
+  h1 { font-size: $h1-font-size; }
+  h2 { font-size: $h2-font-size; }
+  h3 { font-size: $h3-font-size; }
+  h4 { font-size: $h4-font-size; }
+  h5 { font-size: $h5-font-size; }
+  h6 { font-size: $h6-font-size; }
+}
+
+@each $name, $value in $font-sizes {
+  .fs-#{$name} {
+    font-size: list.nth($value, 1);
+    line-height: list.nth($value, 2);
+  }
+}
+
+.fw-normal { font-weight: $font-weight-normal; }
+.fw-semibold { font-weight: $font-weight-semibold; }
+.fw-bold { font-weight: $font-weight-bold; }

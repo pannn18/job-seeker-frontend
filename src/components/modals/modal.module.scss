@@ -1,0 +1,181 @@
+@use "sass:map";
+@use "../../styles/variables" as *;
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba($neutral-dark, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+}
+
+.modalContent {
+  width: 100%;
+  min-width: 400px;
+  max-width: 500px;
+  padding: map.get($spacers, 5);
+  background: $white;
+  border-radius: $border-radius-lg;
+  box-shadow: $box-shadow;
+
+  h2 {
+    margin-bottom: map.get($spacers, 4);
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: map.get($spacers, 3);
+}
+
+.input,
+.select {
+  padding: map.get($spacers, 3);
+  border: 1px solid $neutral-input;
+  border-radius: $border-radius;
+  background: $white;
+  color: $neutral-primary;
+  font-size: $font-size-lg;
+  transition: border-color 0.2s;
+
+  &:focus {
+    outline: none;
+    border-color: $secondary;
+  }
+
+  &:disabled {
+    background: $neutral-light;
+    cursor: not-allowed;
+  }
+}
+
+.select {
+  cursor: pointer;
+}
+
+.button {
+  padding: map.get($spacers, 3);
+  border: none;
+  border-radius: $border-radius;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  cursor: pointer;
+  transition: background 0.2s;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.buttonPrimary {
+  @extend .button;
+  background: $primary;
+  color: $neutral-dark;
+
+  &:hover:not(:disabled) {
+    background: $primary-hover;
+  }
+}
+
+.buttonSecondary {
+  @extend .button;
+  width: 100%;
+  margin-top: map.get($spacers, 3);
+  background: $neutral-light;
+  color: $neutral-primary;
+
+  &:hover:not(:disabled) {
+    background: $neutral-separator;
+  }
+}
+
+.error {
+  padding: map.get($spacers, 2) map.get($spacers, 3);
+  border: 1px solid $danger-border;
+  border-radius: $border-radius-sm;
+  background: $danger-surface;
+  color: $danger-main;
+  font-size: $font-size-base;
+}
+
+.loadingSpinner {
+  display: inline-block;
+  position: relative;
+
+  &::after {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-left: map.get($spacers, 2);
+    border: 2px solid $neutral-dark;
+    border-top-color: transparent;
+    border-radius: 50%;
+    vertical-align: middle;
+    animation: spin 0.6s linear infinite;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.tabs {
+  display: flex;
+  gap: map.get($spacers, 2);
+  margin-bottom: map.get($spacers, 4);
+}
+
+.tab,
+.tabActive {
+  flex: 1;
+  padding: map.get($spacers, 3);
+  border-radius: $border-radius;
+  font-size: $font-size-lg;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.tab {
+  border: 1px solid $neutral-input;
+  background: $white;
+  color: $neutral-secondary;
+
+  &:hover {
+    background: $neutral-light;
+  }
+}
+
+.tabActive {
+  border: 1px solid $neutral-dark;
+  background: $neutral-dark;
+  color: $white;
+  font-weight: $font-weight-bold;
+}
+
+.switchText {
+  margin-top: map.get($spacers, 3);
+  text-align: center;
+  font-size: $font-size-base;
+  color: $neutral-secondary;
+}
+
+.switchLink {
+  padding: 0;
+  border: none;
+  background: none;
+  color: $secondary;
+  font-weight: $font-weight-bold;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

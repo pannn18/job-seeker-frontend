@@ -1,0 +1,82 @@
+@use "sass:map";
+@use "../../styles/variables" as *;
+
+.wrapper {
+  position: fixed;
+  top: map.get($spacers, 4);
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.navbar {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: map.get($spacers, 7);
+  padding: map.get($spacers, 2) map.get($spacers, 4) map.get($spacers, 2) map.get($spacers, 4);
+  background: rgba($white, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: map.get($spacers, 2);
+  color: $neutral-primary;
+  font-size: $h6-font-size;
+  font-weight: $font-weight-bold;
+  text-decoration: none;
+}
+
+.logoMark {
+  width: 28px;
+  height: 28px;
+  border-radius: $border-radius-sm;
+  background: $primary;
+}
+
+.links {
+  display: flex;
+  gap: map.get($spacers, 5);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  a {
+    font-size: $font-size-lg;
+    color: $neutral-secondary;
+    text-decoration: none;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $neutral-primary;
+    }
+  }
+}
+
+.login {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 0 map.get($spacers, 5);
+  border: none;
+  border-radius: $border-radius-sm;
+  background: $neutral-dark;
+  color: $white;
+  font-size: $font-size-base;
+  font-weight: $font-weight-bold;
+  cursor: pointer;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}

@@ -1,0 +1,167 @@
+@use "functions" as *;
+
+$green-01: #7bdc39;
+$green-02: #9ce56b;
+$green-03: #bdee9c;
+$green-04: #def6ce;
+$green-05: #f2fceb;
+$green-06: #f8fdf5;
+
+$teal-01: #005b59;
+$teal-02: #408482;
+$teal-03: #80adac;
+$teal-04: #bfd6d6;
+$teal-05: #e6efee;
+$teal-06: #f2f7f7;
+
+$neutral-primary: #111111;
+$neutral-secondary: #5b6356;
+$neutral-subtle: #87937d;
+$neutral-input: #dfe5da;
+$neutral-separator: #e8ece4;
+$neutral-light: #f7f9f4;
+$neutral-dark: #1f1f1f;
+$white: #ffffff;
+
+$success-main: #3fb950;
+$success-surface: #f4fbf5;
+$success-border: #c3ebc9;
+$success-hover: #2f9a40;
+$success-pressed: #1d5e27;
+
+$info-main: #2f6fed;
+$info-surface: #f5f8ff;
+$info-border: #bcd0fa;
+$info-hover: #2559c4;
+$info-pressed: #173a80;
+
+$warning-main: #f0b429;
+$warning-surface: #fffbf0;
+$warning-border: #fbe5aa;
+$warning-hover: #c8921f;
+$warning-pressed: #7a5812;
+
+$danger-main: #d93636;
+$danger-surface: #fff7f7;
+$danger-border: #f3c1c1;
+$danger-hover: #b92c2c;
+$danger-pressed: #6e1a1a;
+
+$primary: $green-01;
+$primary-hover: #62c425;
+$secondary: $teal-01;
+$success: $success-main;
+$info: $info-main;
+$warning: $warning-main;
+$danger: $danger-main;
+$light: $neutral-light;
+$dark: $neutral-dark;
+
+$body-bg: $white;
+$body-color: $neutral-secondary;
+$headings-color: $neutral-primary;
+$border-color: $neutral-separator;
+
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "light": $light,
+  "dark": $dark,
+  "green-01": $green-01,
+  "green-02": $green-02,
+  "green-03": $green-03,
+  "green-04": $green-04,
+  "green-05": $green-05,
+  "green-06": $green-06,
+  "teal-01": $teal-01,
+  "teal-02": $teal-02,
+  "teal-03": $teal-03,
+  "teal-04": $teal-04,
+  "teal-05": $teal-05,
+  "teal-06": $teal-06,
+);
+
+$font-family-base: "Inter", sans-serif;
+
+$font-size-xs: toRem(10);
+$font-size-sm: toRem(12);
+$font-size-base: toRem(14);
+$font-size-lg: toRem(16);
+$font-size-xl: toRem(18);
+
+$font-weight-normal: 400;
+$font-weight-semibold: 500;
+$font-weight-bold: 600;
+
+$line-height-font-xl: 1.44;
+$line-height-font-lg: 1.5;
+$line-height-font-base: 1.57;
+$line-height-font-sm: 1.67;
+$line-height-font-xs: 1.8;
+
+$h1-font-size: toRem(56);
+$h2-font-size: toRem(44);
+$h3-font-size: toRem(36);
+$h4-font-size: toRem(28);
+$h5-font-size: toRem(22);
+$h6-font-size: toRem(20);
+
+$h1-mobile-font-size: toRem(40);
+$h2-mobile-font-size: toRem(32);
+$h3-mobile-font-size: toRem(28);
+$h4-mobile-font-size: toRem(22);
+$h5-mobile-font-size: toRem(20);
+$h6-mobile-font-size: toRem(18);
+
+$heading-line-height: 1.2;
+$headings-font-weight: $font-weight-bold;
+
+$font-sizes: (
+  xl: ($font-size-xl, $line-height-font-xl),
+  lg: ($font-size-lg, $line-height-font-lg),
+  base: ($font-size-base, $line-height-font-base),
+  sm: ($font-size-sm, $line-height-font-sm),
+  xs: ($font-size-xs, $line-height-font-xs),
+);
+
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 2,
+  6: $spacer * 3,
+  7: $spacer * 4,
+  8: $spacer * 6,
+);
+
+$grid-gutter: toRem(24);
+$grid-gutter-mobile: toRem(16);
+
+$container-max-width: toRem(1200);
+$container-padding-x: toRem(40);
+$container-padding-x-mobile: toRem(20);
+
+$section-padding-y: toRem(96);
+$section-padding-y-mobile: toRem(64);
+
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+);
+
+$border-radius-sm: 8px;
+$border-radius: 12px;
+$border-radius-lg: 20px;
+$border-radius-full: 999px;
+
+$shadow-color: rgba(0, 0, 0, 0.06);
+$box-shadow: 0 8px 30px $shadow-color;
