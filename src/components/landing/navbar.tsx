@@ -1,4 +1,5 @@
 import styles from "./navbar.module.scss";
+import logo from "../../assets/logo.svg";
 
 interface NavbarProps {
   onLoginClick: () => void;
@@ -16,8 +17,7 @@ export default function Navbar({ onLoginClick }: NavbarProps) {
     <header className={styles.wrapper}>
       <nav className={styles.navbar}>
         <a href="#home" className={styles.logo}>
-          <span className={styles.logoMark} />
-          Careera
+          <img src={logo} alt="Careera" className={styles.logoImage} />
         </a>
 
         <ul className={styles.links}>

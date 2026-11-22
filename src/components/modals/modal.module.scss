@@ -1,5 +1,6 @@
 @use "sass:map";
 @use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
 
 .modalOverlay {
   position: fixed;
@@ -58,10 +59,8 @@
 }
 
 .button {
-  padding: map.get($spacers, 3);
+  @include btn-size(lg);
   border: none;
-  border-radius: $border-radius;
-  font-size: $font-size-lg;
   font-weight: $font-weight-bold;
   cursor: pointer;
   transition: background 0.2s;
@@ -135,10 +134,8 @@
 
 .tab,
 .tabActive {
+  @include btn-size(md);
   flex: 1;
-  padding: map.get($spacers, 3);
-  border-radius: $border-radius;
-  font-size: $font-size-lg;
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
 }

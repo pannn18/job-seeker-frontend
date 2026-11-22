@@ -1,0 +1,30 @@
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 2,
+  6: $spacer * 3,
+  7: $spacer * 4,
+  8: $spacer * 6,
+);
+
+$grid-gutter: toRem(24);
+$grid-gutter-mobile: toRem(16);
+
+$container-max-width: toRem(1200);
+$container-padding-x: toRem(40);
+$container-padding-x-mobile: toRem(20);
+
+$section-padding-y: toRem(96);
+$section-padding-y-mobile: toRem(64);
+
+$border-radius-sm: 8px;
+$border-radius: 12px;
+$border-radius-lg: 20px;
+$border-radius-full: 999px;
+
+$shadow-color: rgba(0, 0, 0, 0.06);
+$box-shadow: 0 8px 30px $shadow-color;

@@ -4,6 +4,7 @@ import styles from './landing.module.scss'
 import LoginModal from '../components/modals/loginModal'
 import RegisterModal from '../components/modals/registerModal'
 import Navbar from '../components/landing/navbar'
+import Features from '../components/landing/features'
 
 export default function Landing() {
   const [showLoginModal, setShowLoginModal] = useState(false)
@@ -31,20 +32,31 @@ export default function Landing() {
 
       <section id="home" className={styles.hero}>
         <div className={styles.heroContainer}>
-        <div className={styles.headline}>
           <h1 className={styles.heroTitle}>
             Find Your <span className={styles.mutedText}>Next Career</span> <br />
             &amp; <span className={styles.mutedText}>Strategic Talent</span> Partners <br />
             From Today
           </h1>
-        </div>
 
         <p className={styles.subtitle}>
           Connect ambitious candidates with modern hiring teams through structured roles,
           transparent matching, and faster workflows.
         </p>
+
+          <div className={styles.actions}>
+            <button
+              className={styles.ctaPrimary}
+              onClick={() => setShowRegisterModal(true)}>
+              Get Started
+            </button>
+            <a href="#features" className={styles.ctaSecondary}>
+              Learn More
+            </a>
+          </div>
         </div>
       </section>
+
+      <Features />
 
       {showLoginModal && (
         <LoginModal

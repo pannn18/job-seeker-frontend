@@ -7,14 +7,21 @@ body {
   font-size: $font-size-base;
   line-height: $line-height-font-base;
   font-weight: $font-weight-normal;
-  color: $color-text;
+  color: $neutral-primary;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
 }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   font-weight: $headings-font-weight;
   line-height: $heading-line-height;
-  color: $color-text;
+  color: $neutral-primary;
 }
 
 h1 { font-size: $h1-mobile-font-size; }
@@ -24,7 +31,7 @@ h4 { font-size: $h4-mobile-font-size; }
 h5 { font-size: $h5-mobile-font-size; }
 h6 { font-size: $h6-mobile-font-size; }
 
-@media (min-width: $breakpoint-md) {
+@include up(md) {
   h1 { font-size: $h1-font-size; }
   h2 { font-size: $h2-font-size; }
   h3 { font-size: $h3-font-size; }

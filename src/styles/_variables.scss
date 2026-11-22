@@ -85,7 +85,7 @@ $theme-colors: (
   "teal-06": $teal-06,
 );
 
-$font-family-base: "Inter", sans-serif;
+$font-family-base: "Plus Jakarta Sans", sans-serif;
 
 $font-size-xs: toRem(10);
 $font-size-sm: toRem(12);
@@ -160,8 +160,28 @@ $breakpoints: (
 
 $border-radius-sm: 8px;
 $border-radius: 12px;
-$border-radius-lg: 20px;
-$border-radius-full: 999px;
+$border-radius-lg: 24px;
+$border-radius-full: 64px;
 
 $shadow-color: rgba(0, 0, 0, 0.06);
 $box-shadow: 0 8px 30px $shadow-color;
+
+$display-font-size: toRem(64);
+$display-fluid-size: 6vw;
+$display-line-height: 1.1;
+$display-letter-spacing: -0.03em;
+
+$content-max-width: toRem(1000);
+$text-max-width: toRem(640);
+$hero-padding-top: toRem(160);
+
+$hero-padding-bottom: toRem(200);
+$grid-size: toRem(64);
+
+$btn-radius: $border-radius-sm;
+
+$btn-sizes: (
+  sm: (height: toRem(36), padding-x: toRem(16), font-size: $font-size-base),
+  md: (height: toRem(44), padding-x: toRem(24), font-size: $font-size-base),
+  lg: (height: toRem(52), padding-x: toRem(32), font-size: $font-size-lg),
+);

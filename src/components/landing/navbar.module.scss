@@ -1,5 +1,7 @@
 @use "sass:map";
+@use "../../styles/functions" as *;
 @use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
 
 .wrapper {
   position: fixed;
@@ -16,7 +18,9 @@
   pointer-events: auto;
   display: flex;
   align-items: center;
-  gap: map.get($spacers, 7);
+  justify-content: space-between;
+  width: 100%;
+  max-width: toRem(1000);
   padding: map.get($spacers, 2) map.get($spacers, 4) map.get($spacers, 2) map.get($spacers, 4);
   background: rgba($white, 0.8);
   backdrop-filter: blur(12px);
@@ -35,11 +39,10 @@
   text-decoration: none;
 }
 
-.logoMark {
-  width: 28px;
-  height: 28px;
-  border-radius: $border-radius-sm;
-  background: $primary;
+.logoImage {
+  display: block;
+  height: 50px;
+  width: auto;
 }
 
 .links {
@@ -62,16 +65,10 @@
 }
 
 .login {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 44px;
-  padding: 0 map.get($spacers, 5);
+  @include btn-size(md);
   border: none;
-  border-radius: $border-radius-sm;
   background: $neutral-dark;
   color: $white;
-  font-size: $font-size-base;
   font-weight: $font-weight-bold;
   cursor: pointer;
   transition: opacity 0.2s;

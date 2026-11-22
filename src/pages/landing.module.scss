@@ -1,6 +1,7 @@
 @use "sass:color";
 @use "../styles/variables" as *;
 @use "../styles/functions" as *;
+@use "../styles/mixins" as *;
 @use "sass:map";
 
 
@@ -10,37 +11,44 @@
 }
 
 .hero {
-  min-height: 70vh;
-  padding-top: toRem(175);
-  padding-bottom: toRem(110);
-  text-align: center;
+  width: 100%;
+  padding: $hero-padding-top 6rem $hero-padding-bottom;
   background-image:
-    
     radial-gradient(
       ellipse 50% 50% at 50% 42%,
       transparent 38%,
       color.adjust($body-bg, $alpha: -0.45) 74%,
       $body-bg 100%
     ),
-    
     radial-gradient(
       circle at 50% 44%,
       color.adjust($primary, $alpha: -0.84) 0%,
       color.adjust($teal-01, $alpha: -0.94) 45%,
       transparent 72%
     ),
+    linear-gradient(to right, $border-color 1px, transparent 1px),
+    linear-gradient(to bottom, $border-color 1px, transparent 1px);
+  background-size:
+    auto,
+    auto,
+    $grid-size $grid-size,
+    $grid-size $grid-size;
+  background-position: center top;
+}
 
-    linear-gradient(to right, color.adjust($neutral-primary, $alpha: -0.955) 1px, transparent 1px),
-    linear-gradient(to bottom, color.adjust($neutral-primary, $alpha: -0.955) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, toRem(48) toRem(48), toRem(48) toRem(48);
+.heroContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: $content-max-width;
+  margin: 0 auto;
+  padding: 0 map.get($spacers, 4);
+  text-align: center;
 }
 
 .heroTitle {
-  font-size: $h1-font-size;
-  line-height: $heading-line-height;
-  color: $headings-color;
-  letter-spacing: -0.03em;
-
+  font-size: clamp(#{$h1-font-size}, #{$display-fluid-size}, #{$display-font-size});
+  line-height: $display-line-height;
 }
 
 .mutedText {
@@ -48,17 +56,56 @@
 }
 
 .subtitle {
-  max-width: toRem(540);
-  margin: 0 auto toRem(28);
-  font-size: $font-size-base;
-  line-height: $line-height-font-base;
-  color: $neutral-secondary;
+  max-width: $text-max-width;
+  font-size: $font-size-xl;
+  line-height: $line-height-font-xl;
+  color: $neutral-subtle;
+  font-weight: $font-weight-semibold;
 }
 
 .heroContainer {
-  gap: map.get($spacers, 3);
+  gap: map.get($spacers, 5);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
+
+.actions {
+  display: flex;
+  gap: map.get($spacers, 3);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ctaPrimary {
+  @include btn-size(lg);
+  font-weight: $font-weight-bold;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s, opacity 0.2s;
+  background: $primary;
+  color: $neutral-primary;
+  
+
+  &:hover {
+    background: $primary-hover;
+  }
+}
+
+.ctaSecondary {
+  @include btn-size(lg);
+  font-weight: $font-weight-bold;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s, opacity 0.2s;
+  background: $neutral-dark;
+  color: $white;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
