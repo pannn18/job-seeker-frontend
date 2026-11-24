@@ -144,11 +144,11 @@ $spacers: (
 $grid-gutter: toRem(24);
 $grid-gutter-mobile: toRem(16);
 
-$container-max-width: toRem(1200);
+$container-max-width: toRem(1440);
 $container-padding-x: toRem(40);
 $container-padding-x-mobile: toRem(20);
 
-$section-padding-y: toRem(96);
+$section-padding-y: toRem(200);
 $section-padding-y-mobile: toRem(64);
 
 $breakpoints: (
@@ -171,9 +171,9 @@ $display-fluid-size: 6vw;
 $display-line-height: 1.1;
 $display-letter-spacing: -0.03em;
 
-$content-max-width: toRem(1000);
+$content-max-width: toRem(1440);
 $text-max-width: toRem(640);
-$hero-padding-top: toRem(160);
+$hero-padding-top: toRem(190);
 
 $hero-padding-bottom: toRem(200);
 $grid-size: toRem(64);

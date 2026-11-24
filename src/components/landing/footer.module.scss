@@ -1,0 +1,111 @@
+@use "sass:map";
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.footer {
+  overflow: hidden;
+  padding: map.get($spacers, 7) 0 0;
+  border-top: 1px solid $border-color;
+  background: $neutral-light;
+}
+
+.container {
+  width: 100%;
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 map.get($spacers, 4);
+}
+
+.top {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: map.get($spacers, 5);
+
+  @include up(md) {
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: map.get($spacers, 7);
+  }
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: map.get($spacers, 3);
+}
+
+.logo {
+  display: block;
+  height: 64px;
+  width: auto;
+}
+
+.tagline {
+  max-width: 24rem;
+  font-size: $font-size-base;
+  line-height: $line-height-font-base;
+  color: $neutral-subtle;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: map.get($spacers, 3);
+
+  h6 {
+    font-size: $font-size-base;
+    font-weight: $font-weight-bold;
+    color: $neutral-primary;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: map.get($spacers, 2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  a,
+  button {
+    padding: 0;
+    border: none;
+    background: none;
+    font-size: $font-size-base;
+    color: $neutral-subtle;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $neutral-primary;
+    }
+  }
+}
+
+.bottom {
+  margin-top: map.get($spacers, 6);
+  padding-top: map.get($spacers, 4);
+  border-top: 1px solid $border-color;
+
+  p {
+    font-size: $font-size-sm;
+    color: $neutral-subtle;
+  }
+}
+
+.wordmark {
+  margin-top: map.get($spacers, 5);
+  margin-bottom: -0.2em;
+  font-size: clamp(4rem, 24vw, 18.75rem);
+  font-weight: $font-weight-bold;
+  line-height: 0.8;
+  letter-spacing: -0.04em;
+  text-align: center;
+  user-select: none;
+  background: linear-gradient(to bottom, $neutral-primary 0%, rgba($neutral-primary, 0.15) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}

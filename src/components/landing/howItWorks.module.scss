@@ -1,0 +1,136 @@
+@use "sass:map";
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.howItWorks {
+  padding-bottom: $section-padding-y;
+}
+
+.container {
+  width: 100%;
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 map.get($spacers, 4);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: map.get($spacers, 3);
+  margin: 0 auto map.get($spacers, 6);
+  text-align: center;
+}
+
+.pill {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $teal-01;
+}
+
+.title {
+  max-width: $text-max-width;
+
+  h2 {
+    font-size: $h2-font-size;
+    color: $neutral-primary;
+  }
+}
+
+.subtitle {
+  margin-top: map.get($spacers, 2);
+  font-size: $font-size-xl;
+  line-height: $line-height-font-lg;
+  color: $neutral-subtle;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: map.get($spacers, 5);
+  align-items: center;
+
+  @include up(lg) {
+    grid-template-columns: 1fr 1fr;
+    gap: map.get($spacers, 7);
+  }
+}
+
+.media {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 5 / 4;
+  overflow: hidden;
+  border-radius: $border-radius-lg;
+  background: linear-gradient(135deg, $green-04 0%, $green-06 100%);
+  color: $secondary;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: map.get($spacers, 3);
+  padding: map.get($spacers, 4) 0 map.get($spacers, 4) map.get($spacers, 4);
+  border: none;
+  border-left: 3px solid $border-color;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.3s, border-color 0.3s;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.stepActive {
+  border-left-color: $neutral-dark;
+  opacity: 1;
+}
+
+.stepIcon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  background: $white;
+  color: $neutral-primary;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.stepActive .stepIcon {
+  border-color: transparent;
+  background: $primary;
+  color: $neutral-dark;
+}
+
+.stepBody {
+  display: flex;
+  flex-direction: column;
+  gap: map.get($spacers, 1);
+
+  h5 {
+    color: $neutral-dark;
+  }
+
+  p {
+    font-size: $font-size-lg;
+    line-height: $line-height-font-lg;
+    color: $neutral-subtle;
+  }
+}

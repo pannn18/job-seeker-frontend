@@ -5,6 +5,9 @@ import LoginModal from '../components/modals/loginModal'
 import RegisterModal from '../components/modals/registerModal'
 import Navbar from '../components/landing/navbar'
 import Features from '../components/landing/features'
+import HowItWorks from '../components/landing/HowItWorks'
+import Testimonials from '../components/landing/Testimonials'
+import Footer from '../components/landing/Footer'
 
 export default function Landing() {
   const [showLoginModal, setShowLoginModal] = useState(false)
@@ -56,7 +59,13 @@ export default function Landing() {
         </div>
       </section>
 
-      <Features />
+      <Features onGetStarted={() => setShowRegisterModal(true)} />
+      <HowItWorks />
+      <Testimonials onGetStarted={() => setShowRegisterModal(true)} />
+      <Footer
+        onLoginClick={() => setShowLoginModal(true)}
+        onRegisterClick={() => setShowRegisterModal(true)}
+      />
 
       {showLoginModal && (
         <LoginModal

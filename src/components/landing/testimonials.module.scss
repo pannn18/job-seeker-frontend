@@ -1,0 +1,173 @@
+@use "sass:map";
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.testimonials {
+  padding-bottom: $section-padding-y;
+}
+
+.container {
+  width: 100%;
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 map.get($spacers, 4);
+}
+
+.stage {
+  --wall-gap: #{map.get($spacers, 3)};
+
+  @include up(lg) {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: auto auto;
+    column-gap: var(--wall-gap);
+  }
+}
+
+.wall {
+  display: flex;
+  gap: var(--wall-gap);
+
+  @include up(lg) {
+    display: contents;
+  }
+}
+
+.column {
+  display: none;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--wall-gap);
+
+  &:nth-child(n + 4):nth-child(-n + 6) {
+    display: flex;
+  }
+
+  @include up(md) {
+    &:nth-child(n + 3):nth-child(-n + 7) {
+      display: flex;
+    }
+  }
+
+  @include up(lg) {
+    display: flex;
+
+    &:nth-child(-n + 2),
+    &:nth-child(n + 8) {
+      grid-row: 1 / span 2;
+    }
+  }
+
+  &::before {
+    content: "";
+    flex-shrink: 0;
+    height: calc(var(--top) + 2rem);
+    border-radius: 0 0 $border-radius $border-radius;
+    background: linear-gradient(to bottom, rgba($neutral-light, 0), $neutral-light);
+  }
+
+  &::after {
+    content: "";
+    flex: 1;
+    align-self: center;
+    width: 1px;
+    min-height: 2rem;
+    background: $border-color;
+  }
+}
+
+.tile {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  background: $neutral-light;
+  color: $neutral-input;
+  transition: transform 0.3s, box-shadow 0.3s;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $box-shadow;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.content {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: map.get($spacers, 3);
+  margin-top: map.get($spacers, 6);
+  text-align: center;
+
+  @include up(lg) {
+    grid-column: 3 / 8;
+    grid-row: 2;
+    margin-top: 0;
+    padding-top: map.get($spacers, 5);
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background-image: linear-gradient(
+        to right,
+        transparent calc(50% - var(--wall-gap) / 2 - 0.5px),
+        $border-color calc(50% - var(--wall-gap) / 2 - 0.5px),
+        $border-color calc(50% - var(--wall-gap) / 2 + 0.5px),
+        transparent calc(50% - var(--wall-gap) / 2 + 0.5px)
+      );
+      background-size: calc((100% + var(--wall-gap)) / 5) 100%;
+    }
+  }
+}
+
+.pill {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $teal-01;
+}
+
+.title {
+  max-width: $text-max-width;
+  font-size: $h2-font-size;
+  color: $neutral-primary;
+}
+
+.muted {
+  display: block;
+  color: $neutral-subtle;
+}
+
+.subtitle {
+  max-width: $text-max-width;
+  font-size: $font-size-xl;
+  line-height: $line-height-font-lg;
+  color: $neutral-subtle;
+}
+
+.cta {
+  @include btn-size(lg);
+  margin-top: map.get($spacers, 2);
+  border: none;
+  background: $neutral-dark;
+  color: $white;
+  font-weight: $font-weight-bold;
+  cursor: pointer;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
